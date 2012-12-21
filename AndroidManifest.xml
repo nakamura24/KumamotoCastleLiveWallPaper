@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.kumamotocastlelivewallpaper"
+    android:versionCode="3"
+    android:versionName="1.0.3" 
+    android:installLocation="auto">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <service
+            android:name=".KumamotoCastleLiveWall"
+            android:label="@string/KumamotoCastleLiveWall"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data 
+                android:name="android.service.wallpaper" 
+                android:resource="@xml/wallpaper" />
+        </service>
+        
+    </application>
+
+</manifest>
