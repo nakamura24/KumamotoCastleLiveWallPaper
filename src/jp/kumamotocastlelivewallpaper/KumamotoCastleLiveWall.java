@@ -44,17 +44,16 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 	}
 	
 	public void DrawCanvas(Canvas canvas) {
+		// draw something
+		canvas.drawColor(BackgroundColor);
+		ChangeImage();
+		canvas.drawBitmap(Image, 0, 0, null);
+		OverLayer(canvas);
 		if(preSingleTap != SingleTap) {
 			Bitmap kumamon =  BitmapFactory.decodeResource(getResources(), images[randam.nextInt(images.length)]);
 			canvas.drawBitmap(kumamon, TapPointX, TapPointY, null);
 			preSingleTap = SingleTap;
 			DrawDelayTime = 3000;
-		} else {
-			// draw something
-			canvas.drawColor(BackgroundColor);
-			ChangeImage();
-			canvas.drawBitmap(Image, 0, 0, null);
-			OverLayer(canvas);
 		}
 	}
 	
