@@ -26,7 +26,7 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 	private static final int[] images = {R.drawable.kumamon05,R.drawable.kumamon07,
 		R.drawable.kumamon08,R.drawable.kumamon09,R.drawable.kumamon12,};
 	private Random randam = new Random();
-    private int preSingleTap = 0;
+	private int preSingleTap = 0;
 
 	@Override
 	public void onCreate() {
@@ -42,21 +42,21 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 	public Engine onCreateEngine() {
 		return new LiveEngine();
 	}
-	
+
+	@Override
 	public void DrawCanvas(Canvas canvas) {
 		// draw something
-		canvas.drawColor(BackgroundColor);
-		ChangeImage();
-		canvas.drawBitmap(Image, 0, 0, null);
+		super.DrawCanvas(canvas);
 		OverLayer(canvas);
 		if(preSingleTap != SingleTap) {
 			Bitmap kumamon =  BitmapFactory.decodeResource(getResources(), images[randam.nextInt(images.length)]);
 			canvas.drawBitmap(kumamon, TapPointX, TapPointY, null);
 			preSingleTap = SingleTap;
-			DrawDelayTime = 3000;
+			DrawDelayTime = 3000;	// millisecond
 		}
 	}
-	
+
+	@Override
 	public void ChangeImage() {
 		Calendar calendar = Calendar.getInstance();
 		int month = calendar.get(Calendar.MONTH);
@@ -92,7 +92,12 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 			Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle5);
 		}
 	}
-	
+
+	@Override
+	public void DrawDelay() {
+		DrawDelayTime = 0;
+	}
+
 	private void OverLayer(Canvas canvas) {
 		Date date = Calendar.getInstance().getTime();
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd(EEE)", Locale.JAPANESE);
@@ -108,9 +113,5 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 		paint.setTextSize(18);
 		Resources resource = getResources();
 		canvas.drawText(resource.getString(R.string.battery)+ String.valueOf(battery) +"%", 25, 140, paint);
-	}
-	
-	public void DrawDelay() {
-		DrawDelayTime = 0;
 	}
 }
