@@ -52,7 +52,7 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 			Bitmap kumamon =  BitmapFactory.decodeResource(getResources(), images[randam.nextInt(images.length)]);
 			canvas.drawBitmap(kumamon, TapPointX, TapPointY, null);
 			preSingleTap = SingleTap;
-			DrawDelayTime = 3000;	// millisecond
+			DelayMillis = 3000;	// millisecond
 		}
 	}
 
@@ -95,7 +95,7 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 
 	@Override
 	public void DrawDelay() {
-		DrawDelayTime = 0;
+		DelayMillis = 0;
 	}
 
 	private void OverLayer(Canvas canvas) {
