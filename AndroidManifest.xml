@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.kumamotocastlelivewallpaper"
-    android:versionCode="8"
-    android:versionName="1.1.4" 
+    android:versionCode="9"
+    android:versionName="1.1.5" 
     android:installLocation="auto">
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -26,7 +27,11 @@
                 android:name="android.service.wallpaper" 
                 android:resource="@xml/wallpaper" />
         </service>
-        
-    </application>
+        <activity 
+            android:name=".LiveWallPaperPreference" 
+            android:theme="@android:style/Theme.WallpaperSettings" 
+            android:exported="true">
+        </activity>
 
+    </application>
 </manifest>

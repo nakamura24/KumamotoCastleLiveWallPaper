@@ -3,7 +3,8 @@
 
     <string name="app_name">熊本城ライブ壁紙</string>
     <string name="KumamotoCastleLiveWall">熊本城ライブ壁紙</string>
-    <string name="description">時刻や季節によって画像が替わります。タップした所にくまモンが現れます</string>
+    <string name="description">季節によって画像が替わります。タップした所にくまモンが現れます</string>
     <string name="battery">電池残量:</string>
+    <string name="locate">地域</string>
     
 </resources>
