@@ -136,6 +136,7 @@ public class ForecastTask extends AsyncTask<Integer, Integer, Long> {
 			editor.putString(KumamotoCastleLiveWall.KEY_TODAY, titles.get(0));
 			editor.putString(KumamotoCastleLiveWall.KEY_TOMORROW, titles.get(1));
 			editor.putString(KumamotoCastleLiveWall.KEY_DAY_AFTER_TOMORROW, titles.get(2));
+			editor.putLong(KumamotoCastleLiveWall.KEY_LASTUPDATE, Calendar.getInstance().getTimeInMillis());
 
 			// Commit the edits!
 			editor.commit();		

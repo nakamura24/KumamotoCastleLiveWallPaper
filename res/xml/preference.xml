@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference android:key="locate" android:title="@string/locate" android:entryValues="@array/values" android:entries="@array/entries"/>
-</PreferenceScreen>
+    <CheckBoxPreference 
+        android:key="date" 
+        android:title="@string/date"/>
+	<CheckBoxPreference 
+	    android:key="forecast" 
+	    android:title="@string/forecast"/>
+    <ListPreference 
+        android:key="locate" 
+        android:title="@string/locate" 
+        android:dependency="forecast"
+        android:layout="?android:attr/preferenceLayoutChild"
+        android:entryValues="@array/values" 
+        android:entries="@array/entries"/>
+ </PreferenceScreen>

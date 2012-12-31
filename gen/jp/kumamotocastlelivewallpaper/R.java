@@ -32,8 +32,10 @@ public final class R {
         public static final int KumamotoCastleLiveWall=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int battery=0x7f050003;
+        public static final int date=0x7f050004;
         public static final int description=0x7f050002;
-        public static final int locate=0x7f050004;
+        public static final int forecast=0x7f050005;
+        public static final int locate=0x7f050006;
     }
     public static final class style {
         /** 
