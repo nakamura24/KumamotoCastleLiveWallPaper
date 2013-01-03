@@ -35,22 +35,9 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 	public static final String KEY_DAY_AFTER_TOMORROW	= "day_after_tomorrow";
 	private int mLocateId = 0;
 
-	// 設定が変更された時に呼び出されるListener
-	private final SharedPreferences.OnSharedPreferenceChangeListener mListerner = 
-			new SharedPreferences.OnSharedPreferenceChangeListener()
-	{
-		@Override
-		public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-		}
-	};
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
-		// 設定が変更された時に呼び出されるListenerを登録
-		SharedPreferences setting = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		setting.registerOnSharedPreferenceChangeListener(mListerner);
 	}
 
 	@Override
