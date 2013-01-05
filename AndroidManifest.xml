@@ -28,7 +28,7 @@
                 android:resource="@xml/wallpaper" />
         </service>
         <activity 
-            android:name=".LiveWallPaperPreference" 
+            android:name="jp.livewallpaper.kumamotocastle.LiveWallPaperPreference" 
             android:theme="@android:style/Theme.WallpaperSettings" 
             android:exported="true">
         </activity>

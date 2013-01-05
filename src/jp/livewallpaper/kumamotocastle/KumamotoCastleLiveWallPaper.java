@@ -120,7 +120,7 @@ public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 	private void OverLayer(Canvas canvas) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		Paint paint = new Paint();
-		paint.setColor(Color.BLACK);
+		paint.setColor(Color.GREEN);
 		paint.setTypeface(Typeface.DEFAULT_BOLD);
 		if(sharedPreferences.getBoolean("date", false)) {
 			paint.setTextSize(18);
