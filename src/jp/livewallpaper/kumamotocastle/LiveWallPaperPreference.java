@@ -8,7 +8,7 @@
  * 		http://creativecommons.org/licenses/by-nc-sa/2.1/jp/legalcode
  */
 
-package jp.kumamotocastlelivewallpaper;
+package jp.livewallpaper.kumamotocastle;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

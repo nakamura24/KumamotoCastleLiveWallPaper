@@ -8,7 +8,7 @@
  * 		http://creativecommons.org/licenses/by-nc-sa/2.1/jp/legalcode
  */
 
-package jp.kumamotocastlelivewallpaper;
+package jp.livewallpaper.kumamotocastle;
 
 import java.io.InputStream;
 import java.util.*;
@@ -133,10 +133,10 @@ public class ForecastTask extends AsyncTask<Integer, Integer, Long> {
 			Log.i(TAG, "onPostExecute");
 	        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 			SharedPreferences.Editor editor = sharedPreferences.edit();
-			editor.putString(KumamotoCastleLiveWall.KEY_TODAY, titles.get(0));
-			editor.putString(KumamotoCastleLiveWall.KEY_TOMORROW, titles.get(1));
-			editor.putString(KumamotoCastleLiveWall.KEY_DAY_AFTER_TOMORROW, titles.get(2));
-			editor.putLong(KumamotoCastleLiveWall.KEY_LASTUPDATE, Calendar.getInstance().getTimeInMillis());
+			editor.putString(KumamotoCastleLiveWallPaper.KEY_TODAY, titles.get(0));
+			editor.putString(KumamotoCastleLiveWallPaper.KEY_TOMORROW, titles.get(1));
+			editor.putString(KumamotoCastleLiveWallPaper.KEY_DAY_AFTER_TOMORROW, titles.get(2));
+			editor.putLong(KumamotoCastleLiveWallPaper.KEY_LASTUPDATE, Calendar.getInstance().getTimeInMillis());
 
 			// Commit the edits!
 			editor.commit();		

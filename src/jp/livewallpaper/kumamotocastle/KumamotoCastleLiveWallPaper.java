@@ -8,7 +8,7 @@
  * 		http://creativecommons.org/licenses/by-nc-sa/2.1/jp/legalcode
  */
 
-package jp.kumamotocastlelivewallpaper;
+package jp.livewallpaper.kumamotocastle;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -23,12 +23,15 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.view.MotionEvent;
 
-public class KumamotoCastleLiveWall extends LiveWallPaper {
+public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 	private static final int[] images = {R.drawable.kumamon05,R.drawable.kumamon07,
 		R.drawable.kumamon08,R.drawable.kumamon09,R.drawable.kumamon12,};
 	private Random randam = new Random();
-	private int preSingleTap = 0;
+	private boolean SingleTap = false;
+	private float TapPointX = 0;
+	private float TapPointY = 0;
 	public static final String KEY_LASTUPDATE	= "LastUpdate";
 	public static final String KEY_TODAY	= "today";
 	public static final String KEY_TOMORROW	= "tomorrow";
@@ -55,10 +58,10 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 		// draw something
 		super.DrawCanvas(canvas);
 		OverLayer(canvas);
-		if(preSingleTap != SingleTap) {
+		if(SingleTap) {
 			Bitmap kumamon =  BitmapFactory.decodeResource(getResources(), images[randam.nextInt(images.length)]);
 			canvas.drawBitmap(kumamon, TapPointX, TapPointY, null);
-			preSingleTap = SingleTap;
+			SingleTap = false;
 			DelayMillis = 3000;	// millisecond
 		}
 	}
@@ -104,6 +107,14 @@ public class KumamotoCastleLiveWall extends LiveWallPaper {
 	@Override
 	public void DrawDelay() {
 		DelayMillis = 0;
+	}
+
+	@Override
+	public boolean SingleTapConfirmed(MotionEvent event) {
+		SingleTap = true;
+		TapPointX = event.getX();
+		TapPointY = event.getY();
+		return true;
 	}
 
 	private void OverLayer(Canvas canvas) {
