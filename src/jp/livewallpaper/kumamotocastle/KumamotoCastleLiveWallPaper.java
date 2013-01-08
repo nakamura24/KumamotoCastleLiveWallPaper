@@ -28,14 +28,13 @@ import android.view.MotionEvent;
 public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 	private static final int[] images = {R.drawable.kumamon05,R.drawable.kumamon07,
 		R.drawable.kumamon08,R.drawable.kumamon09,R.drawable.kumamon12,};
+	private static final int[] colors ={Color.BLACK,Color.RED,Color.GREEN,Color.BLUE,
+		Color.CYAN,Color.MAGENTA,Color.YELLOW,Color.WHITE};
 	private Random randam = new Random();
 	private boolean SingleTap = false;
 	private float TapPointX = 0;
 	private float TapPointY = 0;
 	public static final String KEY_LASTUPDATE	= "LastUpdate";
-	public static final String KEY_TODAY	= "today";
-	public static final String KEY_TOMORROW	= "tomorrow";
-	public static final String KEY_DAY_AFTER_TOMORROW	= "day_after_tomorrow";
 	private int mLocateId = 0;
 
 	@Override
@@ -119,31 +118,31 @@ public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 
 	private void OverLayer(Canvas canvas) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		int color = Integer.parseInt(sharedPreferences.getString("color", "0"));
 		Paint paint = new Paint();
-		paint.setColor(Color.GREEN);
+		paint.setColor(colors[color]);
 		paint.setTypeface(Typeface.DEFAULT_BOLD);
+		if(sharedPreferences.getBoolean("forecast", false)) {
+			String today = sharedPreferences.getString(ForecastTask.KEY_TODAY, "");
+			String tomorrow = sharedPreferences.getString(ForecastTask.KEY_TOMORROW, "");
+			String day_after_tomorrow = sharedPreferences.getString(ForecastTask.KEY_DAY_AFTER_TOMORROW, "");
+			paint.setTextSize(8 * Scaled);
+			canvas.drawText(today, 3 * Scaled, 22 * Scaled, paint);
+			canvas.drawText(tomorrow, 3 * Scaled, 32 * Scaled, paint);
+			canvas.drawText(day_after_tomorrow, 3 * Scaled, 42 * Scaled, paint);
+		}
 		if(sharedPreferences.getBoolean("date", false)) {
-			paint.setTextSize(18);
+			paint.setTextSize(6 * Scaled);
 			Date date = Calendar.getInstance().getTime();
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd(EEE)", Locale.JAPANESE);
 			SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm", Locale.JAPANESE);
-			canvas.drawText(sdf1.format(date), 340, 70, paint);
-			paint.setTextSize(50);
-			canvas.drawText(sdf2.format(date), 340, 115, paint);
+			canvas.drawText(sdf1.format(date), 115 * Scaled, 22 * Scaled, paint);
+			paint.setTextSize(16 * Scaled);
+			canvas.drawText(sdf2.format(date), 115 * Scaled, 37 * Scaled, paint);
 			int battery = (int)((double)BatteryLevel / BatteryScale * 100.0 + 0.5);
-			paint.setTextSize(18);
+			paint.setTextSize(6 * Scaled);
 			Resources resource = getResources();
-			canvas.drawText(resource.getString(R.string.battery)+ String.valueOf(battery) +"%", 340, 140, paint);
-		}
-
-		if(sharedPreferences.getBoolean("forecast", false)) {
-			String today = sharedPreferences.getString(KEY_TODAY, "");
-			String tomorrow = sharedPreferences.getString(KEY_TOMORROW, "");
-			String day_after_tomorrow = sharedPreferences.getString(KEY_DAY_AFTER_TOMORROW, "");
-			paint.setTextSize(24);
-			canvas.drawText(today, 10, 70, paint);
-			canvas.drawText(tomorrow, 10, 100, paint);
-			canvas.drawText(day_after_tomorrow, 10, 130, paint);
+			canvas.drawText(resource.getString(R.string.battery)+ String.valueOf(battery) +"%", 117 * Scaled, 43 * Scaled, paint);
 		}
 	}
 	

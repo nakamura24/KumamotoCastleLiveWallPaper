@@ -40,5 +40,7 @@ public class LiveWallPaperPreference extends PreferenceActivity
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		ListPreference locate = (ListPreference)getPreferenceScreen().findPreference("locate");
 		locate.setSummary(locate.getEntry());
+		ListPreference color = (ListPreference)getPreferenceScreen().findPreference("color");
+		color.setSummary(color.getEntry());
 	}
 }

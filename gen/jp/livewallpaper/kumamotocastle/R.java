@@ -9,8 +9,10 @@ package jp.livewallpaper.kumamotocastle;
 
 public final class R {
     public static final class array {
+        public static final int colors=0x7f040001;
+        public static final int colorvalues=0x7f040002;
         public static final int entries=0x7f040000;
-        public static final int values=0x7f040001;
+        public static final int values=0x7f040003;
     }
     public static final class attr {
     }
@@ -36,6 +38,7 @@ public final class R {
         public static final int description=0x7f050002;
         public static final int forecast=0x7f050005;
         public static final int locate=0x7f050006;
+        public static final int textcolor=0x7f050007;
     }
     public static final class style {
         /** 

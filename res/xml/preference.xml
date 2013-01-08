@@ -14,4 +14,9 @@
         android:layout="?android:attr/preferenceLayoutChild"
         android:entryValues="@array/values" 
         android:entries="@array/entries"/>
+	<ListPreference 
+        android:entries="@array/colors" 
+        android:entryValues="@array/colorvalues" 
+        android:key="color" 
+        android:title="@string/textcolor"/>
  </PreferenceScreen>

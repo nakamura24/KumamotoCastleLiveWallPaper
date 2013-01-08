@@ -35,6 +35,10 @@ public class ForecastTask extends AsyncTask<Integer, Integer, Long> {
 	private Date pubDate = null;
 	private int id = 63;
 	private Context context;
+	public static final String KEY_LASTUPDATE	= "LastUpdate";
+	public static final String KEY_TODAY	= "today";
+	public static final String KEY_TOMORROW	= "tomorrow";
+	public static final String KEY_DAY_AFTER_TOMORROW	= "day_after_tomorrow";
 	
 	public ForecastTask(Context context){
 		this.context = context;
@@ -133,10 +137,10 @@ public class ForecastTask extends AsyncTask<Integer, Integer, Long> {
 			Log.i(TAG, "onPostExecute");
 	        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 			SharedPreferences.Editor editor = sharedPreferences.edit();
-			editor.putString(KumamotoCastleLiveWallPaper.KEY_TODAY, titles.get(0));
-			editor.putString(KumamotoCastleLiveWallPaper.KEY_TOMORROW, titles.get(1));
-			editor.putString(KumamotoCastleLiveWallPaper.KEY_DAY_AFTER_TOMORROW, titles.get(2));
-			editor.putLong(KumamotoCastleLiveWallPaper.KEY_LASTUPDATE, Calendar.getInstance().getTimeInMillis());
+			editor.putString(KEY_TODAY, titles.get(0));
+			editor.putString(KEY_TOMORROW, titles.get(1));
+			editor.putString(KEY_DAY_AFTER_TOMORROW, titles.get(2));
+			editor.putLong(KEY_LASTUPDATE, Calendar.getInstance().getTimeInMillis());
 
 			// Commit the edits!
 			editor.commit();		
