@@ -36,6 +36,13 @@ public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 	private float TapPointY = 0;
 	public static final String KEY_LASTUPDATE	= "LastUpdate";
 	private int mLocateId = 0;
+	
+	public KumamotoCastleLiveWallPaper() {
+		//　ActionTimeTickを有効にする
+		ActionTimeTick = true;
+		//　ActionBatteryChangedを有効にする
+		ActionBatteryChanged = true;
+	}
 
 	@Override
 	public void onCreate() {
