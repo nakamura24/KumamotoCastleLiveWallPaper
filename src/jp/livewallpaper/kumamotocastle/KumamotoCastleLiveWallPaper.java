@@ -39,9 +39,9 @@ public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 	
 	public KumamotoCastleLiveWallPaper() {
 		//　ActionTimeTickを有効にする
-		ActionTimeTick = true;
+		UseTimeTick = true;
 		//　ActionBatteryChangedを有効にする
-		ActionBatteryChanged = true;
+		UseBatteryChanged = true;
 	}
 
 	@Override
@@ -81,31 +81,31 @@ public class KumamotoCastleLiveWallPaper extends LiveWallPaper {
 			switch(month) {
 			case Calendar.JANUARY:
 			case Calendar.FEBRUARY:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle4);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle4);
 				break;
 			case Calendar.MARCH:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle0);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle0);
 				break;
 			case Calendar.APRIL:
 			case Calendar.MAY:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle1);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle1);
 				break;
 			case Calendar.JUNE:
 			case Calendar.JULY:
 			case Calendar.AUGUST:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle2);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle2);
 				break;
 			case Calendar.SEPTEMBER:
 			case Calendar.OCTOBER:
 			case Calendar.NOVEMBER:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle3);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle3);
 				break;
 			case Calendar.DECEMBER:
-				Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle4);
+				BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle4);
 				break;
 			}
 		} else {
-			Image = BitmapFactory.decodeResource(getResources(), R.drawable.castle5);
+			BitmapImage = BitmapFactory.decodeResource(getResources(), R.drawable.castle5);
 		}
 		getForecast();
 	}
